@@ -21,6 +21,7 @@ An on-screen keyboard that highlights keys in real-time as you type on your phys
 
 
 ## Dependencies
+- Python version >= 3.10
 - wxPython
     - `pip install wxPython`
 - pynput

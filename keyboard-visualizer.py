@@ -1,13 +1,14 @@
 
 import wx
 from pynput import keyboard
-import pygame
 import threading
 import argparse
+import os 
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1' #hide the welcome message
+import pygame
 
 KEY_X_SIZE = 40
 KEY_Y_SIZE = 40
-KEY_SPACING = 5
 
 # WIDTH = 550 # row 1 should have 15 key + spacing
 # HEIGHT = 300
@@ -95,7 +96,7 @@ class MyFrame(wx.Frame): # main window
                 match col:
                     case "Esc":
                         percent_w = 1
-                        spacing = KEY_X_SIZE + KEY_SPACING
+                        spacing = KEY_X_SIZE
                     case "F4" | "F8":
                         spacing = KEY_X_SIZE//2
                     case "Tab" | "\\":
@@ -104,20 +105,16 @@ class MyFrame(wx.Frame): # main window
                         percent_w = 2
                     case "Caps Lock" | "Enter":
                         percent_w = 2
-                        if ("Caps Lock"):
-                            spacing = 2
-                    case "'":
-                        spacing = 2
                     case "Shift":
-                        percent_w = 2.6
+                        percent_w = 2.5
                     case "Ctrl" | "Alt":
-                        percent_w = 2.6
+                        percent_w = 2.5
                     case "Space":
-                        percent_w = 5.7
+                        percent_w = 5
                     case _:
                         pass
                 
-                button = Key(panel,percent_w=percent_w, percent_h=percent_h, pos=(pos_x,(i*(KEY_Y_SIZE+KEY_SPACING))),mainword=STANDARD_LAYOUT[i][j],subword=SHIFT_LAYOUT[i][j])
+                button = Key(panel,percent_w=percent_w, percent_h=percent_h, pos=(pos_x,(i*(KEY_Y_SIZE))),mainword=STANDARD_LAYOUT[i][j],subword=SHIFT_LAYOUT[i][j])
                 match STANDARD_LAYOUT[i][j]:
                     case "Shift" | "Ctrl" | "Alt":
                         if (STANDARD_LAYOUT[i][j].lower() not in self.KeyDict):
@@ -132,7 +129,7 @@ class MyFrame(wx.Frame): # main window
                             self.KeyDict[SHIFT_LAYOUT[i][j].lower()] = button
 
                 # next pos
-                pos_x += round(percent_w*KEY_X_SIZE) + spacing + KEY_SPACING
+                pos_x += round(percent_w*KEY_X_SIZE) + spacing
 
         # make sure the panel is always at the center
         panelsizer.Add(panel,proportion=1,flag=wx.EXPAND | wx.ALL,border=10)
