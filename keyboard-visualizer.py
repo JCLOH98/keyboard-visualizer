@@ -318,6 +318,7 @@ class MyFrame(wx.Frame): # main window
 class MyApp(wx.App):
     def OnInit(self):
         frame = MyFrame(None,"Keyboard Visualizer")
+        frame.SetWindowStyleFlag(wx.DEFAULT_FRAME_STYLE & ~(wx.MINIMIZE_BOX))
         return True
 
 if __name__ == "__main__":
