@@ -322,7 +322,7 @@ class MyApp(wx.App):
         return True
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Keyboard visualizer argumnents")
+    parser = argparse.ArgumentParser(description="Keyboard visualizer arguments")
     
     parser.add_argument('--soundon', action='store_true', help="Enable sound.")
     
