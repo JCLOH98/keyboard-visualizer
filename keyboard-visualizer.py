@@ -18,7 +18,7 @@ RELEASE_BG_COLOR = wx.Colour(244,244,244)
 KEYBOARD_BG_COLOR = wx.Colour(165,214,167)
 
 FONT_PATH = r"./Lexend/Lexend-VariableFont_wght.ttf"
-SOUND_PATH = r"./mechanical-key-soft-80731.mp3"
+SOUND_PATH = r"./mechanical-key-soft-short.mp3"
 SOUND_ON = False
 
 STANDARD_LAYOUT = [
